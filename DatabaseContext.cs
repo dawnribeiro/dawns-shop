@@ -44,5 +44,6 @@ namespace dawns_shop
       modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
     }
     public DbSet<dawns_shop.Model.Plant> Plants { get; set; }
+    public DbSet<dawns_shop.Model.Location> Locations { get; set; }
   }
 }

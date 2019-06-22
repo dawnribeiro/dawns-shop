@@ -1,8 +1,9 @@
-using System;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using dawns_shop.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace dawns_shop.Controllers
 {
@@ -26,11 +27,14 @@ namespace dawns_shop.Controllers
       return item;
     }
     [HttpGet]
-    public ActionResult<List<Plant>> GetAll()
+    public ActionResult<List<Plant>> Get()
+
     {
-      var rv = db.Plants;
-      return rv.ToList();
+      var all = db.Plants.Include(i => i.location);
+      return all.ToList();
     }
+
+
 
     [HttpGet("{Id}")]
     public ActionResult<Plant> GetOnePlant(int Id)
@@ -46,6 +50,7 @@ namespace dawns_shop.Controllers
       updatedPlant.NumberInStock = item.NumberInStock;
       updatedPlant.SKU = item.SKU;
       updatedPlant.Price = item.Price;
+      updatedPlant.LocationId = item.LocationId;
       db.SaveChanges();
       return updatedPlant;
 
