@@ -32,13 +32,14 @@ namespace dawns_shop.Controllers
       return rv.ToList();
     }
 
-    // [HttpGet]
-    // public ActionResult<List<Plant>> GetLocations()
+    [HttpGet]
+    public ActionResult<List<Plant>> GetLocations()
 
-    // {
-    //   var allLocations = db.Locations.Include(i => i.item);
-    //   return allLocations.ToList();
-    // }
+    {
+      var allItemsInLocations = db.Locations.Include(i => i.item);
+      return allItemsInLocations.ToList();
+    }
+
   }
 
 }
