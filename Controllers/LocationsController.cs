@@ -33,10 +33,10 @@ namespace dawns_shop.Controllers
     }
 
     // [HttpGet]
-    // public ActionResult<List<Plant>> GetLocations()
+    // public ActionResult<List<Location>> GetLocations()
 
     // {
-    //   var allItemsInLocations = db.Locations.Include(i => i.item);
+    //   var allItemsInLocations = db.Locations.Include(i => i.Plants);
     //   return allItemsInLocations.ToList();
     // }
 

@@ -39,7 +39,9 @@ namespace dawns_shop.Controllers
     [HttpGet("{Id}")]
     public ActionResult<Plant> GetOnePlant(int Id)
     {
-      var onePlant = db.Plants.FirstOrDefault(f => f.Id == Id);
+      var onePlant = db.Plants
+      .Include(i => i.location)
+      .FirstOrDefault(f => f.Id == Id);
       return onePlant;
     }
 
